@@ -67,8 +67,6 @@ def is_in(element, sequence):
 	Renvoie True si element est dans sequence et False sinon
 	(pour remplacer l'opérateur in ; pour préparer EP en Terminale)
 	"""
-#   if len(sequence[0]==0):
-#	return False
 	for i in sequence:
 		if isinstance(i, list):
 			for k in i:
