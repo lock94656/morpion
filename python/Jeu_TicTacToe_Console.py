@@ -198,6 +198,7 @@ def controler_etat_du_jeu(round_of_play, sums, status):
             return -1
         elif sums[i] == -3:
             return -2
+    return 10
 
 
 
