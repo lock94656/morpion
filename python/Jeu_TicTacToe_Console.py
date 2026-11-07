@@ -128,24 +128,29 @@ def afficher_grille(grid, marks=' XO'):
 # ---------------------------------------------------------------------------- #
 
 def saisir_coordonnees(grid, status):
-    """
-    Renvoie :
-        - l'état de la partie (type int), égal au numéro du joueur (valeur de
-          status transmise) ou à -3 (abandon) si 'Q' ou 'q' a été saisi ;
-        - les coordonnées saisies L, C d'une case valide de la grille grid.
-    Les coordonnées sont entrées sont la forme L,C.
-    """
-    L = input("Entrez le n° de ligne : ")
-    if L.lower() == "q":
-        return -3
-    C = input("Entrez le n° de colonne : ")
-    if C.lower() == "q":
-        return -3
-    elif L.isdigit() and C.isdigit():
-        return int(status), [int(L),int(C)]
-    else:
-        return 'Tu ne sais pas ecrire un nombre'
-
+	"""
+	Renvoie :
+	- l'état de la partie (type int), égal au numéro du joueur (valeur de
+	  status transmise) ou à -3 (abandon) si 'Q' ou 'q' a été saisi ;
+	- les coordonnées saisies L, C d'une case valide de la grille grid.
+	Les coordonnées sont entrées sont la forme L,C.
+	"""
+	while True:
+		L = input("Entrez le n° de ligne : ")
+		if L.lower() == "q":
+			return -3
+		elif L.isdigit() and L <= 3:
+			break
+	while True:
+		C = input("Entrez le n° de colonne : ")
+		if C.lower() == "q":
+			return -3
+		elif C.isdigit() and C <= 3:
+			break
+	if status.isdigit():
+		return status, int(L), int(C)
+	else:
+		return False
 
 
 # ---------------------------------------------------------------------------- #
@@ -158,7 +163,7 @@ def mettre_a_jour_grille_et_sommes(grid, sums, row, col, player):
         - la grille grid mise à jour ;
         - les sommes associées sums associées à la grille grid mises à jour.
     """
-    # Mettre à jour la case de la grille
+    # Maj la case de la grille
     grid[row][col] = player
 
     # Maj des sommes des lignes
@@ -223,26 +228,28 @@ def controler_etat_du_jeu(round_of_play, sums, status):
 # ---------------------------------------------------------------------------- #
 
 def afficher_message_de_fin(status):
-    """
-    Affiche le message de fin de partie d'après l'état de la partie status,
-    égal à :
-        -3 si la partie a été interrompue par 'Q' ou 'q' ;
-        -2 si le joueur 2 a gagné ;
-        -1 si le joueur 1 a gagné ;
-         0 si il y a égalité.
-    Ne renvoie rien.
-    """
-    if status == -3:
-        print("la partie a été interrompue")
-    elif status == -2:
-        print("le joueur 2 a gagné")
-    elif status == -1:
-        print("le joueur 1 a gagné")
-    elif status == 0:
-        print("il y a égalité")
-    else:
-        print("t'as cassé le jeu")
+	"""
+	Affiche le message de fin de partie d'après l'état de la partie status,
+	égal à :
+	-3 si la partie a été interrompue par 'Q' ou 'q' ;
+	-2 si le joueur 2 a gagné ;
+	-1 si le joueur 1 a gagné ;
+	0 si il y a égalité ;
+	Une erreur si la valeur de status est incorrecte.
+	Ne renvoie rien.
+	"""
 
+	match status:
+		case -3:
+			print("La partie a ete interrompue")
+		case -2:
+			print("Le joueur 2 a gagne")
+		case -1:
+			print("Le joueur 1 a gagne")
+		case 0:
+			print("Egalite")
+		case _:
+			print("Valeur de status incorrecte :", status)
 
 # -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - #
 # Fonction principale de jeu                                                   #
@@ -252,10 +259,10 @@ def tictactoe():
     """
     """
     # Initialisations -------------------------------------------------------- #
-    ...
-    ...
-    ...
-    ...
+    grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]] #création de la grille qui stocke la position des croix et ronds
+    sums = [0, 0, 0, 0, 0, 0, 0, 0] 
+    status = 1 #status = 1 car c'est au premier joueur de jouer
+    round_of_play = 0
     # Affichage de la grille
     ...
     # Boucle de jeu ---------------------------------------------------------- #
