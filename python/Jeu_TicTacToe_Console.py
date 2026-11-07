@@ -211,18 +211,6 @@ def controler_etat_du_jeu(round_of_play, sums, status):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 # ---------------------------------------------------------------------------- #
 # Une fonction d'affichage en fin de partie (victoire, égalité, interruption)
 # ---------------------------------------------------------------------------- #
@@ -259,12 +247,12 @@ def tictactoe():
     """
     """
     # Initialisations -------------------------------------------------------- #
-    grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]] #création de la grille qui stocke la position des croix et ronds
+    grid = [0, 0, 0, 0, 0, 0, 0, 0, 0] #création de la grille qui stocke la position des croix et ronds
     sums = [0, 0, 0, 0, 0, 0, 0, 0] 
     status = 1 #status = 1 car c'est au premier joueur de jouer
     round_of_play = 0
     # Affichage de la grille
-    ...
+    afficher_grille(grid)
     # Boucle de jeu ---------------------------------------------------------- #
     while ...:
         # La saisie des coordonnées
