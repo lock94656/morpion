@@ -243,12 +243,13 @@ def afficher_message_de_fin(status):
 
 def tictactoe():
     """
+    main
     """
     # Initialisations -------------------------------------------------------- #
     grid = [0, 0, 0, 0, 0, 0, 0, 0, 0] #création de la grille qui stocke la position des croix et ronds
-    sums = [0, 0, 0, 0, 0, 0, 0, 0] 
+    sums = [0, 0, 0, 0, 0, 0, 0, 0] #création du tableau qui stocke les valeurs de chaque colonnes, lignes et diagonales
     status = 1 #status = 1 car c'est au premier joueur de jouer
-    round_of_play = 0
+    round_of_play = 0 #initialise le nombre de tours joués à zéro
     # Affichage de la grille
     afficher_grille(grid)
     # Boucle de jeu ---------------------------------------------------------- #
