@@ -224,7 +224,7 @@ def afficher_message_de_fin(status):
 	Une erreur si la valeur de status est incorrecte.
 	Ne renvoie rien.
 	"""
-
+	
 	match status:
 		case -3:
 			print("La partie a ete interrompue")
@@ -236,6 +236,9 @@ def afficher_message_de_fin(status):
 			print("Egalite")
 		case _:
 			print("Valeur de status incorrecte :", status)
+			return False
+			
+	return True
 
 # -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - #
 # Fonction principale de jeu                                                   #

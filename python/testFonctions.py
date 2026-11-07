@@ -17,6 +17,14 @@ class TestFonctions(unittest.TestCase):
 	
 	def test_afficher_message_de_fin(self):
 		"""Teste la fonction afficher_message_de_fin avec differentes valeurs"""
+		self.assertEqual(afficher_message_de_fin(0), True)
+		self.assertEqual(afficher_message_de_fin(-1), True)
+		self.assertEqual(afficher_message_de_fin(-2), True)
+		self.assertEqual(afficher_message_de_fin(-3), True)
+		self.assertEqual(afficher_message_de_fin(10), False)
+		self.assertEqual(afficher_message_de_fin(1), False)
+		self.assertEqual(afficher_message_de_fin(2), False)
+		self.assertEqual(afficher_message_de_fin(3), False)
 
 if __name__ == '__main__':
 	unittest.main()
