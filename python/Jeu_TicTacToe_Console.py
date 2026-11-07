@@ -66,6 +66,18 @@ def is_in(element, sequence):
 	"""
 	Renvoie True si element est dans sequence et False sinon
 	(pour remplacer l'opérateur in ; pour préparer EP en Terminale)
+	
+	Parametres
+	------------
+	element: int
+		l'element a recherche dans la sequence
+	sequence: tableau int
+		tableau correspondant au status de chaque ligne / colonne / diagonale
+	
+	Renvoie
+	--------
+	True ou False
+		True si element est dans sequence et False sinon
 	"""
 	for i in range(len(sequence)):
 		if sequence[i] == element:

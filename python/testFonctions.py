@@ -16,9 +16,9 @@ class TestFonctions(unittest.TestCase):
 		
 		#test avec valeur d'entree erronee
 		self.assertEqual(is_in( -1, [[5, 2, 1], [10, 25, 4], [1, 3, 1]]), False)
-		
-		print("=================================")
-	
+
+		print("=================================\n")
+
 	@patch('Jeu_TicTacToe_Console.input')
 	def test_saisir_coordonnees(self, mock_input):
 		"""Teste la fonction saisir_coordonnees avec differentes valeurs"""
@@ -44,7 +44,7 @@ class TestFonctions(unittest.TestCase):
 		self.assertEqual(L, -1)
 		self.assertEqual(C, -1)
 		
-		print("=================================")
+		print("=================================\n")
 		
 	#def test_mettre_a_jour_grille_et_sommes(self):
 		
@@ -56,7 +56,7 @@ class TestFonctions(unittest.TestCase):
 		
 		self.assertEqual(controler_etat_du_jeu( 1, [0,1,2,-1,1,1,0,1],2), 10)
 		
-		print("=================================")
+		print("=================================\n")
 	# a completer
 	
 	def test_afficher_message_de_fin(self):
@@ -77,7 +77,8 @@ class TestFonctions(unittest.TestCase):
 		self.assertEqual(afficher_message_de_fin(2), False)
 		self.assertEqual(afficher_message_de_fin(3), False)
 
-		print("=================================")
+		print("=================================\n")
+
 
 
 if __name__ == '__main__':
