@@ -136,19 +136,19 @@ def saisir_coordonnees(grid, status):
 	while True:
 		L = input("Entrez le n° de ligne : ")
 		if L.lower() == "q":
-			return -3
-		elif L.isdigit() and L <= 3:
+			return -3, -1, -1
+		elif L.isdigit() and int(L) <= 3 and int(L) > 0:
 			break
 	while True:
 		C = input("Entrez le n° de colonne : ")
 		if C.lower() == "q":
-			return -3
-		elif C.isdigit() and C <= 3:
+			return -3, -1, -1
+		elif C.isdigit() and int(C) <= 3 and int(C) > 0:
 			break
 	if status.isdigit():
 		return status, int(L), int(C)
 	else:
-		return False
+		return -2, -1, -1
 
 
 # ---------------------------------------------------------------------------- #
